@@ -3,6 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const PDFDocument = require('pdfkit');
 const TicketModel = require('../model/ticket-model');
+const { config } = require('dotenv');
+
+config();
 
 aws.config.update({
   accessKeyId: process.env.aws_access_key_id,
