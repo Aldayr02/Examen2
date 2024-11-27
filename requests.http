@@ -1,0 +1,153 @@
+@baseUrl = 3.84.157.106
+@local = localhost
+
+//CLIENTS CRUD
+GET http://{{local}}:3000/clients
+###
+GET http://{{local}}:3000/clients/1
+###
+POST http://{{local}}:3000/clients
+Content-Type: application/json
+
+{
+  "razon_social": "Pepsi Legal",
+  "nombre_comercial": "Pepsi Comercial",
+  "email": "pepsi@gmail.com"
+}
+
+###
+PUT http://{{baseUrl}}:3000/clients/5
+Content-Type: application/json
+
+{
+  "razon_social": "Rosa Legal",
+  "nombre_comercial": "Rosa Comercial",
+  "email": "rosa@gmail.com"
+}
+
+###
+DELETE http://{{baseUrl}}:3000/clients/1
+
+###
+
+//////////////////////////////////////////////////// ADRESSES CRUD ////////////////////////////////////////////////////
+
+GET http://{{baseUrl}}:3000/addresses
+
+###
+
+GET http://{{baseUrl}}:3000/addresses/1
+
+###
+
+POST http://{{baseUrl}}:3000/addresses
+Content-Type: application/json
+
+{
+  "client_id": 2,
+  "domicilio": "Av. Mazamitla 65",
+  "colonia": "Olivos",
+  "municipio": "Tlaquepaque",
+  "estado": "Jalisco",
+  "tipo_direccion": "ENVÍO"
+}
+
+###
+
+POST http://{{baseUrl}}:3000/addresses
+Content-Type: application/json
+
+{
+  "client_id": 2,
+  "domicilio": "Av. Mazamitla 65",
+  "colonia": "Olivos",
+  "municipio": "Tlaquepaque",
+  "estado": "Jalisco",
+  "tipo_direccion": "FACTURACIÓN"
+}
+
+###
+
+PUT http://{{baseUrl}}:3000/addresses/1
+Content-Type: application/json
+
+{
+  "client_id": 1,
+  "domicilio": "Loma bonita 512",
+  "colonia": "Sauz",
+  "municipio": "Zapopan",
+  "estado": "Jalisco",
+  "tipo_direccion": "FACTURACIÓN"
+}
+
+###
+
+DELETE http://{{baseUrl}}:3000/addresses/3
+
+###
+
+//////////////////////////////////////////////////// PRODUCTS CRUD ////////////////////////////////////////////////////
+
+GET http://{{baseUrl}}:3000/products
+
+###
+
+GET http://{{baseUrl}}:3000/products/1
+
+###
+
+POST http://{{baseUrl}}:3000/products
+Content-Type: application/json
+
+{
+  "nombre": "Arroz",
+  "unidad_medida": "kg",
+  "precio_base": 150.50
+}
+
+###
+
+PUT http://{{baseUrl}}:3000/products/2
+Content-Type: application/json
+
+{
+  "nombre": "Leche",
+  "unidad_medida": "litro",
+  "precio_base": 120.75
+}
+
+###
+
+DELETE http://{{baseUrl}}:3000/products/1
+
+###
+
+////////////////////
+
+POST http://{{baseUrl}}:3000/tickets/venta
+Content-Type: application/json
+
+
+  {
+  "clientId": 2,
+  "direccionFacturacionId": 2,
+  "direccionEnvioId": 3,
+  "contenido": [
+    {
+      "productId": 1,
+      "cantidad": 2
+    },
+    {
+      "productId": 2,
+      "cantidad": 1
+    }
+  ]
+}
+
+###
+
+GET http://{{baseUrl}}:3000/tickets/16
+
+
+
+
