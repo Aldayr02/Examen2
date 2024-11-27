@@ -1,7 +1,9 @@
 const express = require('express');
 const routes = require('./routes');
 const aws = require('aws-sdk');
+const { config } = require('dotenv');
 
+config();
 const app = express();
 const port = 3000;
 
